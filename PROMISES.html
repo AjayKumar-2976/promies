@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1)
+
+        let promise = new Promise((success,fail)=>{ 
+        //CALL BACK FOR PROMISES
+            let num = 100
+            if(num>50){
+            success("it's true")
+            }
+            else{
+                fail("its not true")
+            }
+        })
+         
+        promise.then((s)=>{
+         console.log(s)
+        }).catch((f) =>{
+            console.log(f)   
+        })
+
+        //2)
+
+        let promise1 = new Promise((n,e) =>{
+           let name = "ajay"
+           let mail = "ajay.@gmail.com"
+
+           if(name == "ajay" && mail == "ajay.@gmail.com"){
+            function name1(){
+                return n("login successful")
+            }
+            name1()
+        }
+            else {
+                function email1(){
+                return e("login successful")
+            }
+            email1()
+            }
+           
+        })
+
+        promise1.then((op)=>{
+        console.log("true it will be executed");
+        
+        }).catch((op)=>{
+       console.log("false it will not executed");
+       
+        }).finally(()=>{
+         console.log("even it false or true it works");
+
+        })
+
+//3)
+
+let prom = new Promise((s,r) => {setTimeout(() =>{
+
+    s("promise successfull")
+},2000)
+})
+
+prom.then(success =>{
+    console.log(success);
+    
+})
+
+    </script>
+</body>
+</html>
